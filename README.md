@@ -79,7 +79,7 @@ Home Assistant) belongs behind the service layer, not in the handlers.
 src/
 ├── index.ts                              Lambda entry point + injectable skill factory
 ├── handlers/
-│   ├── LaunchRequestHandler.ts           "Alexa, open My AI"
+│   ├── LaunchRequestHandler.ts           "Alexa, open Jarvis"
 │   ├── AskOpenAIIntentHandler.ts         The main question/answer turn
 │   ├── NewConversationIntentHandler.ts   "Start a new conversation"
 │   ├── HelpIntentHandler.ts              AMAZON.HelpIntent
@@ -206,7 +206,9 @@ aws lambda update-function-code --function-name <your-function> --zip-file fileb
 1. Go to the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask)
    and sign in with **the same Amazon account your Echo is registered to**.
 2. **Create Skill**.
-   - Skill name: `My AI`
+   - Skill name: `Jarvis` (the display name in the console and the Alexa app —
+     a separate field from the invocation name, though there is no reason to
+     make them differ)
    - Primary locale: `English (US)`
    - Model: **Custom**
    - Hosting: **Provision your own** (not Alexa-hosted — the Lambda above is the backend)
@@ -243,9 +245,28 @@ phrase. If you find bare questions being missed, add representative phrasings to
 first. `AMAZON.FallbackIntent` catches whatever still slips through and
 reprompts rather than leaving silence.
 
-The invocation name is `my a i` (spaced letters help Alexa hear "My AI"). Amazon
-validates invocation names; if it is rejected, pick something else and update
-both the JSON and the README.
+### Invocation name
+
+The invocation name is `jarvis`, so the launch phrase is `Alexa, open Jarvis`.
+This is *not* a wake word — the wake word stays whatever the device is set to
+(`Alexa`, `Amazon`, `Echo`, `Computer` or `Ziggy`, changed in the Alexa app) and
+no skill can replace it. Setting the device to `Computer` gets you
+`Computer, open Jarvis`, which is about as close as this hardware allows.
+
+Two caveats, neither of which blocks a private skill:
+
+- **Single-word invocation names** are only supposed to be accepted when the
+  name is distinctive to your own brand. Model builds are usually permissive
+  here, but if the console rejects it, `ask jarvis` or `hey jarvis` are the
+  usual fallbacks — change `invocationName` and rebuild.
+- **"Jarvis" is Marvel/Disney intellectual property.** Irrelevant for a skill
+  kept in Development stage on your own account, which is what this project is.
+  It would be a near-certain rejection if you ever submitted it for
+  certification and public publication.
+
+Amazon also rejects invocation names containing `alexa`, `amazon`, `echo`,
+`computer`, `skill`, or `app`, and launch words like `ask`, `tell` or `launch`
+used on their own.
 
 ---
 
@@ -275,7 +296,7 @@ The Lambda must be in a region Alexa supports for the ASK trigger —
 **Test** tab → set the dropdown to **Development**. Then type or speak:
 
 ```text
-open my a i
+open jarvis
 → Hi. What would you like to know?
 
 why is the sky blue
@@ -300,7 +321,7 @@ A skill in **Development** stage is automatically available on Echo devices
 registered to the same Amazon account. No certification or publishing needed.
 
 ```text
-Alexa, open My AI
+Alexa, open Jarvis
 ```
 
 Then work through the checklist: startup, arbitrary questions, spoken answers,
@@ -362,7 +383,7 @@ Limitations below.
 
 ## 14. Limitations
 
-- **The Echo is still an Alexa device.** You must say "Alexa, open My AI" first;
+- **The Echo is still an Alexa device.** You must say "Alexa, open Jarvis" first;
   there is no way to replace the wake word or get raw microphone audio from a
   custom skill. Direct audio-to-audio via the OpenAI Realtime API is not
   possible on this hardware.
