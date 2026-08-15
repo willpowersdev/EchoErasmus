@@ -1,0 +1,12 @@
+node_modules/
+dist/
+lambda.zip
+
+# Never commit real credentials — .env.example is the template that is tracked.
+.env
+.env.*
+!.env.example
+
+*.log
+.DS_Store
+.ask/

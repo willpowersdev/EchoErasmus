@@ -1,0 +1,134 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my a i",
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      },
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AskOpenAIIntent",
+          "slots": [
+            {
+              "name": "question",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "ask {question}",
+            "tell me {question}",
+            "I want to know {question}",
+            "can you tell me {question}",
+            "answer {question}",
+            "question {question}",
+            "I would like to know {question}",
+            "please tell me {question}"
+          ]
+        },
+        {
+          "name": "AskOpenAIFreeformIntent",
+          "slots": [
+            {
+              "name": "question",
+              "type": "FreeformQuestion"
+            }
+          ],
+          "samples": [
+            "{question}"
+          ]
+        },
+        {
+          "name": "NewConversationIntent",
+          "samples": [
+            "start over",
+            "start a new conversation",
+            "new conversation",
+            "forget this conversation",
+            "forget everything",
+            "clear the conversation",
+            "reset the conversation"
+          ]
+        },
+        {
+          "name": "PrivacyIntent",
+          "samples": [
+            "what happens to my data",
+            "where do my questions go",
+            "who hears my questions",
+            "are you private",
+            "what do you do with my data"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "FreeformQuestion",
+          "values": [
+            { "name": { "value": "why is the sky blue" } },
+            { "name": { "value": "how far away is the moon" } },
+            { "name": { "value": "what is the capital of Portugal" } },
+            { "name": { "value": "who wrote the odyssey" } },
+            { "name": { "value": "when did the roman empire fall" } },
+            { "name": { "value": "where does coffee come from" } },
+            { "name": { "value": "what does a semiconductor do" } },
+            { "name": { "value": "how do noise cancelling headphones work" } },
+            { "name": { "value": "explain how tides work" } },
+            { "name": { "value": "explain quantum entanglement simply" } },
+            { "name": { "value": "summarize the french revolution" } },
+            { "name": { "value": "compare diesel and petrol engines" } },
+            { "name": { "value": "give me a recipe for pancakes" } },
+            { "name": { "value": "suggest a book like dune" } },
+            { "name": { "value": "help me plan a weekend in rome" } },
+            { "name": { "value": "what should I cook tonight" } },
+            { "name": { "value": "how long does it take to boil an egg" } },
+            { "name": { "value": "is it safe to freeze cooked rice" } },
+            { "name": { "value": "do cats dream" } },
+            { "name": { "value": "does that happen on mars too" } },
+            { "name": { "value": "how old was he when he died" } },
+            { "name": { "value": "tell me more about that" } },
+            { "name": { "value": "what about the other one" } },
+            { "name": { "value": "can you explain that again" } },
+            { "name": { "value": "why does that matter" } },
+            { "name": { "value": "what is the difference between them" } },
+            { "name": { "value": "how much would that cost" } },
+            { "name": { "value": "what year did that happen" } },
+            { "name": { "value": "give me an example" } },
+            { "name": { "value": "what is a good name for a sailboat" } },
+            { "name": { "value": "how do I get rid of fruit flies" } },
+            { "name": { "value": "what is the largest moon in the solar system" } },
+            { "name": { "value": "why do cats chatter when they see birds" } },
+            { "name": { "value": "how many bones are in the human body" } },
+            { "name": { "value": "what causes the northern lights" } },
+            { "name": { "value": "how does a heat pump work" } },
+            { "name": { "value": "what is the tallest mountain in europe" } },
+            { "name": { "value": "who invented the telephone" } },
+            { "name": { "value": "what language do they speak in brazil" } },
+            { "name": { "value": "how long is a marathon" } }
+          ]
+        }
+      ]
+    }
+  }
+}
