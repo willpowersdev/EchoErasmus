@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "jarvis",
+      "invocationName": "erasmus",
       "modelConfiguration": {
         "fallbackIntentSensitivity": {
           "level": "LOW"
